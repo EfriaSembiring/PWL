@@ -187,6 +187,17 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+    /* PDF
+    */
+    'providers' => [
+....
+Barryvdh\DomPDF\ServiceProvider::class,
+],
+
+'aliases' => [
+....
+'PDF' => Barryvdh\DomPDF\Facade::class,
+]
 
     'aliases' => [
 

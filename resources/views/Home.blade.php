@@ -16,7 +16,7 @@
         </h1>
   
         <!-- Blog Post -->
-        @foreach ($article ?? '' as $artic)
+        @foreach ($article as $artic)
         <div class="card mb-4">
             <img class="card-img-top" src="{{ $artic->imageurl }}" alt="Card image cap">
             <div class="card-body">

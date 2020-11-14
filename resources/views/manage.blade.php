@@ -34,6 +34,9 @@
             </table>
         </div>
         <br>
+        <a href="/article/cetak_pdf" class="btn btn-primary"
+target="_blank">CETAK PDF</a>
+
         <a href="manage/add" class="btn btn-primary">Tambah Data</a>
         <br>
     </div>

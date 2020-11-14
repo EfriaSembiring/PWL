@@ -21,6 +21,9 @@ class ArticleController extends Controller
     	return view('addarticle');
     }
     public function create(Request $request){
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('images','public');
+        }
         Article::create([
         'title' => $request->title,
         'content' => $request->content,
@@ -38,7 +41,12 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $article->title = $request->title;
         $article->content = $request->content;
-        $article->imageurl = $request->image;
+        if($article->imageurl && file_exists(storage_path('app/public/' . $article->featured_image)))
+        {
+        \Storage::delete('public/'.$article->imageurl);
+        }
+        $image_name = $request->file('image')->store('images', 'public');
+        $article->imageurl = $image_name;
         $article->save();
         return redirect('/manage');
     }
@@ -47,4 +55,10 @@ class ArticleController extends Controller
         $article->delete();
         return redirect('/manage');
     }
+    public function cetak_pdf(){
+        $article = Article::all();
+        $pdf = PDF::loadview('articles_pdf',['article'=>$article]);
+        return $pdf->stream();
+       }
+       
 }

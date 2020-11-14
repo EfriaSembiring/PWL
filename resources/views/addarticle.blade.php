@@ -22,8 +22,9 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Image Url</label>
-                        <input type="text" class="form-control"required="required" name="image" placeholder="Add Link Image Here"></br>
+                        <input type="file" class="form-control"required="required" name="image" placeholder="Add Link Image Here"></br>
                     </div>
+        <form action="/article/create" method="post" enctype="multipart/form-data">
                     
                     <button type="submit" class="btn btn-primary float-center2" class="btn btn-primary btn-radiuszan"><i class="fa fa-plus-circle" aria-hidden="true" ></i>  Add Product</button><br><br>
                 </form>
